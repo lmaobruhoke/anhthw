@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>list MXH của AnhThw</title> <!-- Tiêu đề trên tab trình duyệt -->
+    <title>List MXH của AnhThw</title> <!-- Tiêu đề trên tab trình duyệt -->
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -23,10 +23,12 @@
             justify-content: center; /* Center horizontally */
             min-height: 100vh; /* Full viewport height */
             padding: 1rem; /* Add some padding for small screens */
+            background-color: #f0f0f0; /* Default light mode background */
+            color: #333; /* Default light mode text color */
         }
         /* Custom styles for link hover/active effects */
         .social-link {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
         }
         .social-link:hover {
             transform: translateY(-3px) scale(1.02);
@@ -47,11 +49,62 @@
             background-color: rgba(255, 255, 255, 0.3); /* Lớp phủ trắng trong suốt */
             z-index: -1; /* Đặt lớp phủ dưới nội dung */
         }
+
+        /* Dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212; /* Nền đen đậm cho chế độ tối */
+                color: #ffffff; /* Chữ trắng cho chế độ tối */
+            }
+            .bg-white {
+                background-color: #1e1e1e; /* Nền thẻ tối hơn */
+            }
+            .text-gray-800 {
+                color: #ffffff; /* Chữ trắng cho tiêu đề chính */
+            }
+            .social-link {
+                background-color: #333333; /* Nền liên kết xã hội tối */
+            }
+            .social-link:hover {
+                background-color: #444444; /* Nền liên kết xã hội khi di chuột */
+            }
+            .text-gray-700 {
+                color: #ffffff; /* Chữ trắng cho tên liên kết */
+            }
+            /* Điều chỉnh màu biểu tượng để tương phản tốt hơn trong chế độ tối */
+            .fab.fa-facebook { color: #5a99f3; } 
+            .fab.fa-instagram { color: #f67280; } 
+            .fas.fa-heart { color: #fcd34d; } 
+            
+            /* Nổi bật biểu tượng Threads trong chế độ tối */
+            .social-link a[href*="threads.com"] svg {
+                fill: #ffffff; /* Đảm bảo màu trắng */
+                transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+            }
+            .social-link a[href*="threads.com"]:hover svg {
+                transform: scale(1.1); /* Phóng to nhẹ */
+                filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6)); /* Hiệu ứng phát sáng */
+            }
+
+            /* Nổi bật biểu tượng TikTok trong chế độ tối */
+            .social-link a[href*="tiktok.com"] .fab.fa-tiktok {
+                color: #ffffff; /* Đảm bảo màu trắng */
+                transition: transform 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+            }
+            .social-link a[href*="tiktok.com"]:hover .fab.fa-tiktok {
+                transform: scale(1.1); /* Phóng to nhẹ */
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* Hiệu ứng phát sáng */
+            }
+
+            body::before {
+                background-color: rgba(0, 0, 0, 0.5); /* Lớp phủ tối trong suốt để ảnh nền rõ hơn */
+            }
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
     <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">list MXH của AnhThw</h1> <!-- Tiêu đề hiển thị trên trang đã được thay đổi ở đây -->
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">List MXH của AnhThw</h1> <!-- Tiêu đề hiển thị trên trang -->
 
         <div id="fixedLinksContainer" class="space-y-4">
             <!-- Facebook Link -->
@@ -67,7 +120,7 @@
             </a>
 
             <!-- Locket Link -->
-            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Flocket.cam%2Fhnathw%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExN1N0dUxnbllwanA4ZzNRMQEeMqrCPiTAr-Ez-tG1CSqty3bZGAkthBQwGHgHm1R6MR-XcYnORQJiLKOp3bQ_aem_Rt_28j7h5uTWVVc6qxn_ew&h=AT05asGeq9Q7Qw6X-t9HSCIuRiguR-UV6exytHrolJy7pS6W1-mZCOB96y-9Lo1NthnMswg5yWRbQG9d0dYinMmjyyMiQBbdsIbnhYz_YwIi8HV5mmAPS2c5S1U5PZ9uQwNpEGUqCEU42XiHr1y" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+            <a href="https://locket.cam/hnathw?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExN1N0dUxnbllwanA4ZzNRMQEeMqrCPiTAr-Ez-tG1CSqty3bZGAkthBQwGHgHm1R6MR-XcYnORQJiLKOp3bQ_aem_Rt_28j7h5uTWVVc6qxn_ew" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
                 <i class="fas fa-heart text-amber-500 text-2xl mr-3"></i>
                 <span class="text-gray-700 font-medium truncate">Locket</span>
             </a>
@@ -82,7 +135,7 @@
             </a>
 
             <!-- TikTok Link -->
-            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Ftiktok.com%2F%40anhhthuu_9929%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExN1N0dUxnbllwanA4ZzNRMQEe5aqnKtNhTnhB-5i9r8weSo2ZkjH0tXtAkjUWHfSvRPMWyDPMn_Rdj3z0-Jk_aem_jqd55utUQ0DUmdjUPQVW5g&h=AT3AjBhIo8VwnK-7Wg6eCG9C-oJWtAqB54gxabCvZzDrQ_ry7Z9HscgFfXRFM0NWgyj4yb86_x_B73is5kIAHySNVIbLvIpWoD8Bl0PJskNV7NVBoc0yOHlH9dORxkAXQwfUgZDN68cMpg4DkAL" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+            <a href="https://www.tiktok.com/@anhhthuu_9929?lang=vi-VN&is_from_webapp=1&sender_device=mobile&sender_web_id=7512035569134044679" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
                 <i class="fab fa-tiktok text-black text-2xl mr-3"></i>
                 <span class="text-gray-700 font-medium truncate">TikTok</span>
             </a>

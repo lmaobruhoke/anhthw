@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Kết Mạng Xã Hội</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Background image styles */
+            background-image: url('image_7c7738.jpg'); /* Đảm bảo tệp này nằm cùng cấp với index.html */
+            background-size: cover; /* Đảm bảo ảnh bao phủ toàn bộ nền */
+            background-position: center; /* Căn giữa ảnh nền */
+            background-repeat: no-repeat; /* Không lặp lại ảnh */
+            background-attachment: fixed; /* Giữ ảnh cố định khi cuộn */
+            
+            display: flex; /* Ensure flexbox for centering */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            min-height: 100vh; /* Full viewport height */
+            padding: 1rem; /* Add some padding for small screens */
+        }
+        /* Custom styles for link hover/active effects */
+        .social-link {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .social-link:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Optional: Add a semi-transparent overlay to make text more readable on busy backgrounds */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3); /* Lớp phủ trắng trong suốt */
+            z-index: -1; /* Đặt lớp phủ dưới nội dung */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Liên Kết Mạng Xã Hội Của Bạn</h1>
+
+        <div id="fixedLinksContainer" class="space-y-4">
+            <!-- Facebook Link -->
+            <a href="https://www.facebook.com/share/16fKkDMYkx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+                <i class="fab fa-facebook text-blue-600 text-2xl mr-3"></i>
+                <span class="text-gray-700 font-medium truncate">Facebook</span>
+            </a>
+
+            <!-- Instagram Link -->
+            <a href="https://www.instagram.com/09an.hthu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+                <i class="fab fa-instagram text-pink-600 text-2xl mr-3"></i>
+                <span class="text-gray-700 font-medium truncate">Instagram</span>
+            </a>
+
+            <!-- Locket Link -->
+            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Flocket.cam%2Fhnathw%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExN1N0dUxnbllwanA4ZzNRMQEeMqrCPiTAr-Ez-tG1CSqty3bZGAkthBQwGHgHm1R6MR-XcYnORQJiLKOp3bQ_aem_Rt_28j7h5uTWVVc6qxn_ew&h=AT05asGeq9Q7Qw6X-t9HSCIuRiguR-UV6exytHrolJy7pS6W1-mZCOB96y-9Lo1NthnMswg5yWRbQG9d0dYinMmjyyMiQBbdsIbnhYz_YwIi8HV5mmAPS2c5S1U5PZ9uQwNpEGUqCEU42XiHr1y" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+                <i class="fas fa-heart text-amber-500 text-2xl mr-3"></i>
+                <span class="text-gray-700 font-medium truncate">Locket</span>
+            </a>
+
+            <!-- Threads Link -->
+            <a href="https://www.threads.com/@09an.hthu" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+                <!-- Custom SVG for Threads icon -->
+                <svg class="w-6 h-6 mr-3 fill-current text-gray-800" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zM10.5 8.75c0-.966.784-1.75 1.75-1.75s1.75.784 1.75 1.75v.5c0 .966-.784 1.75-1.75 1.75s-1.75-.784-1.75-1.75v-.5zm0 3.5c0-.966.784-1.75 1.75-1.75s1.75.784 1.75 1.75v.5c0 .966-.784 1.75-1.75 1.75s-1.75-.784-1.75-1.75v-.5zm0 3.5c0-.966.784-1.75 1.75-1.75s1.75.784 1.75 1.75v.5c0 .966-.784 1.75-1.75 1.75s-1.75-.784-1.75-1.75v-.5z"/>
+                </svg>
+                <span class="text-gray-700 font-medium truncate">Threads</span>
+            </a>
+
+            <!-- TikTok Link -->
+            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Ftiktok.com%2F%40anhhthuu_9929%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExN1N0dUxnbllwanA4ZzNRMQEe5aqnKtNhTnhB-5i9r8weSo2ZkjH0tXtAkjUWHfSvRPMWyDPMn_Rdj3z0-Jk_aem_jqd55utUQ0DUmdjUPQVW5g&h=AT3AjBhIo8VwnK-7Wg6eCG9C-oJWtAqB54gxabCvZzDrQ_ry7Z9HscgFfXRFM0NWgyj4yb86_x_B73is5kIAHySNVIbLvIpWoD8Bl0PJskNV7NVBoc0yOHlH9dORxkAXQwfUgZDN68cMpg4DkAL" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+                <i class="fab fa-tiktok text-black text-2xl mr-3"></i>
+                <span class="text-gray-700 font-medium truncate">TikTok</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

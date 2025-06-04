@@ -25,6 +25,8 @@
             padding: 1rem; /* Add some padding for small screens */
             background-color: #f0f0f0; /* Default light mode background */
             color: #333; /* Default light mode text color */
+            perspective: 1000px; /* Thêm phối cảnh cho hiệu ứng 3D */
+            overflow: hidden; /* Ngăn cuộn khi nội dung xoay */
         }
         /* Custom styles for link hover/active effects */
         .social-link {
@@ -46,9 +48,53 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.3); /* Lớp phủ trắng trong suốt */
+            background-color: rgba(255, 255, 255, 0.05); /* Giảm độ mờ lớp phủ trắng để ảnh rõ hơn */
             z-index: -1; /* Đặt lớp phủ dưới nội dung */
         }
+
+        /* Styles for the main heading (h1) */
+        .main-heading {
+            font-size: 3.5rem; /* Tăng kích thước chữ */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Thêm đổ bóng chữ để nổi bật */
+            color: #ffffff; /* Đảm bảo màu chữ trắng để nổi bật trên nền ảnh */
+            -webkit-text-stroke: 1px #000000; /* Viền chữ đen để tăng độ rõ nét */
+        }
+
+        /* Container for gyroscope effect */
+        .gyro-container {
+            transition: transform 0.1s ease-out; /* Chuyển động mượt mà hơn */
+            transform-style: preserve-3d; /* Giữ hiệu ứng 3D cho các phần tử con */
+        }
+
+        /* CSS for the celebration effect on click */
+        @keyframes link-celebrate-effect {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background-color: inherit;
+            }
+            50% {
+                transform: scale(1.03); /* Slightly larger pop */
+                box-shadow: 0 0 20px rgba(255, 223, 0, 0.6); /* Yellowish glow */
+                background-color: rgba(255, 223, 0, 0.1); /* Subtle background highlight */
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background-color: inherit;
+            }
+        }
+
+        .link-celebrate-effect {
+            animation: link-celebrate-effect 0.4s ease-out; /* Duration of the animation */
+        }
+
+        /* Light mode specific link backgrounds */
+        .social-link[href*="facebook.com"] { background-color: #E3F2FD; } /* Light Blue */
+        .social-link[href*="instagram.com"] { background-color: #FCE4EC; } /* Light Pink */
+        .social-link[href*="locket.cam"] { background-color: #FFF3E0; } /* Light Orange */
+        .social-link[href*="threads.com"] { background-color: #ECEFF1; } /* Light Gray */
+        .social-link[href*="tiktok.com"] { background-color: #FBE9E7; } /* Light Peach/Reddish */
 
         /* Dark mode styles */
         @media (prefers-color-scheme: dark) {
@@ -57,16 +103,17 @@
                 color: #ffffff; /* Chữ trắng cho chế độ tối */
             }
             .bg-white {
-                background-color: #1e1e1e; /* Nền thẻ tối hơn */
+                background-color: #34495E; /* Màu nền thẻ mới cho chế độ tối (Deep Blue-Gray) */
             }
             .text-gray-800 {
                 color: #ffffff; /* Chữ trắng cho tiêu đề chính */
             }
-            .social-link {
-                background-color: #333333; /* Nền liên kết xã hội tối */
+            /* Remove general social-link background rules for dark mode, rely on specific ones below */
+            .social-link { 
+                /* background-color: #333333; */ /* Removed */
             }
-            .social-link:hover {
-                background-color: #444444; /* Nền liên kết xã hội khi di chuột */
+            .social-link:hover { 
+                /* background-color: #444444; */ /* Removed */
             }
             .text-gray-700 {
                 color: #ffffff; /* Chữ trắng cho tên liên kết */
@@ -97,36 +144,57 @@
             }
 
             body::before {
-                background-color: rgba(0, 0, 0, 0.5); /* Lớp phủ tối trong suốt để ảnh nền rõ hơn */
+                background-color: rgba(0, 0, 0, 0.3); /* Giảm độ mờ lớp phủ đen để ảnh rõ hơn */
             }
+
+            /* Dark mode specific for main heading */
+            .main-heading {
+                color: #ffffff; /* Giữ màu trắng cho chế độ tối */
+                text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Đổ bóng đậm hơn */
+                -webkit-text-stroke: 1px #000000; /* Viền chữ đen */
+            }
+
+            /* Dark mode specific link backgrounds */
+            .social-link[href*="facebook.com"] { background-color: #2A2A4A; } /* Deep Blue-Purple */
+            .social-link[href*="instagram.com"] { background-color: #4A2A2A; } /* Deep Red-Brown */
+            .social-link[href*="locket.cam"] { background-color: #4A4A2A; } /* Deep Yellow-Green */
+            .social-link[href*="threads.com"] { background-color: #2A4A4A; } /* Deep Cyan-Green */
+            .social-link[href*="tiktok.com"] { background-color: #4A2A4A; } /* Deep Magenta-Purple */
+
+            /* Dark mode specific text colors for social link names */
+            .social-link[href*="facebook.com"] .text-gray-700 { color: #B3CDE0; }
+            .social-link[href*="instagram.com"] .text-gray-700 { color: #E0B3C3; }
+            .social-link[href*="locket.cam"] .text-gray-700 { color: #E0E0B3; }
+            .social-link[href*="threads.com"] .text-gray-700 { color: #B3E0E0; }
+            .social-link[href*="tiktok.com"] .text-gray-700 { color: #E0B3E0; }
         }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">List MXH của AnhThw</h1> <!-- Tiêu đề hiển thị trên trang -->
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full gyro-container"> <!-- Thêm class 'gyro-container' vào đây -->
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8 main-heading">List MXH của AnhThw</h1> <!-- Tiêu đề hiển thị trên trang -->
 
         <div id="fixedLinksContainer" class="space-y-4">
             <!-- Facebook Link -->
-            <a href="https://www.facebook.com/share/16fKkDMYkx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+            <a href="https://www.facebook.com/share/16fKkDMYkx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link flex items-center p-3 rounded-lg shadow-sm">
                 <i class="fab fa-facebook text-blue-600 text-2xl mr-3"></i>
                 <span class="text-gray-700 font-medium truncate">Facebook</span>
             </a>
 
             <!-- Instagram Link -->
-            <a href="https://www.instagram.com/09an.hthu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+            <a href="https://www.instagram.com/09an.hthu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link flex items-center p-3 rounded-lg shadow-sm">
                 <i class="fab fa-instagram text-pink-600 text-2xl mr-3"></i>
                 <span class="text-gray-700 font-medium truncate">Instagram</span>
             </a>
 
             <!-- Locket Link -->
-            <a href="https://locket.cam/hnathw?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExN1N0dUxnbllwanA4ZzNRMQEeMqrCPiTAr-Ez-tG1CSqty3bZGAkthBQwGHgHm1R6MR-XcYnORQJiLKOp3bQ_aem_Rt_28j7h5uTWVVc6qxn_ew" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+            <a href="https://locket.cam/hnathw?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExN1N0dUxnbllwanA4ZzNRMQEeMqrCPiTAr-Ez-tG1CSqty3bZGAkthBQwGHgHm1R6MR-XcYnORQJiLKOp3bQ_aem_Rt_28j7h5uTWVVc6qxn_ew" target="_blank" rel="noopener noreferrer" class="social-link flex items-center p-3 rounded-lg shadow-sm">
                 <i class="fas fa-heart text-amber-500 text-2xl mr-3"></i>
                 <span class="text-gray-700 font-medium truncate">Locket</span>
             </a>
 
             <!-- Threads Link -->
-            <a href="https://www.threads.com/@09an.hthu" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+            <a href="https://www.threads.com/@09an.hthu" target="_blank" rel="noopener noreferrer" class="social-link flex items-center p-3 rounded-lg shadow-sm">
                 <!-- Custom SVG for Threads icon -->
                 <svg class="w-6 h-6 mr-3 fill-current text-gray-800" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zM10.5 8.75c0-.966.784-1.75 1.75-1.75s1.75.784 1.75 1.75v.5c0 .966-.784 1.75-1.75 1.75s-1.75-.784-1.75-1.75v-.5zm0 3.5c0-.966.784-1.75 1.75-1.75s1.75.784 1.75 1.75v.5c0 .966-.784 1.75-1.75 1.75s-1.75-.784-1.75-1.75v-.5zm0 3.5c0-.966.784-1.75 1.75-1.75s1.75.784 1.75 1.75v.5c0 .966-.784 1.75-1.75 1.75s-1.75-.784-1.75-1.75v-.5z"/>
@@ -135,11 +203,60 @@
             </a>
 
             <!-- TikTok Link -->
-            <a href="https://www.tiktok.com/@anhhthuu_9929?lang=vi-VN&is_from_webapp=1&sender_device=mobile&sender_web_id=7512035569134044679" target="_blank" rel="noopener noreferrer" class="social-link flex items-center bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm">
+            <a href="https://www.tiktok.com/@anhhthuu_9929?lang=vi-VN&is_from_webapp=1&sender_device=mobile&sender_web_id=7512035569134044679" target="_blank" rel="noopener noreferrer" class="social-link flex items-center p-3 rounded-lg shadow-sm">
                 <i class="fab fa-tiktok text-black text-2xl mr-3"></i>
                 <span class="text-gray-700 font-medium truncate">TikTok</span>
             </a>
         </div>
     </div>
+
+    <script>
+        // Lắng nghe sự kiện deviceorientation để lấy dữ liệu từ con quay hồi chuyển
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', function(event) {
+                const container = document.querySelector('.gyro-container');
+                if (container) {
+                    // event.beta: độ nghiêng từ trước ra sau (trục X)
+                    // event.gamma: độ nghiêng từ trái sang phải (trục Y)
+                    // event.alpha: hướng la bàn (trục Z), ít dùng cho hiệu ứng này
+
+                    // Điều chỉnh độ nhạy của chuyển động
+                    const sensitivity = 0.5; // Điều chỉnh giá trị này để thay đổi độ nhạy
+
+                    const rotateX = event.beta * sensitivity; // Nghiêng lên/xuống
+                    const rotateY = event.gamma * sensitivity; // Nghiêng trái/phải
+
+                    // Giới hạn góc quay để tránh bị lật ngược hoặc quá mức
+                    const maxRotation = 15; // Góc quay tối đa (độ)
+                    const limitedRotateX = Math.max(Math.min(rotateX, maxRotation), -maxRotation);
+                    const limitedRotateY = Math.max(Math.min(rotateY, maxRotation), -maxRotation);
+
+                    // Áp dụng transform cho container
+                    container.style.transform = `rotateX(${limitedRotateX}deg) rotateY(${limitedRotateY}deg)`;
+                }
+            });
+        } else {
+            console.log('Thiết bị của bạn không hỗ trợ Device Orientation API.');
+            // Bạn có thể thêm thông báo cho người dùng nếu muốn
+        }
+
+        // JavaScript để thêm hiệu ứng "hân hoan" khi nhấp vào liên kết
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialLinks = document.querySelectorAll('.social-link');
+
+            socialLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    // Thêm class animation
+                    this.classList.add('link-celebrate-effect');
+
+                    // Xóa class animation sau khi hoàn thành để có thể kích hoạt lại
+                    const animationDuration = 400; // Phải khớp với thời lượng animation trong CSS
+                    setTimeout(() => {
+                        this.classList.remove('link-celebrate-effect');
+                    }, animationDuration);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
